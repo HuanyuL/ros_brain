@@ -1,8 +1,7 @@
 <launch>
-  <include file="$(find turtlebot/turtlebot_bringup/launch/minimal.launch">
-  </include>
-
-  <node name="brain_controller" pkg="brain_server" type="rosservice" args="call _genome:=$(find /genome/test.mng)"/>
+  <include file="$(find turtlebot/turtlebot_bringup/launch/minimal.launch)">
+  <node name="brain_controller" pkg="ros_brain" type="brain_server">
+    <param name="genome" type="string" value="/home/iaac/brain_ws/genome/test.mng"/>
+  </node>
   <node name="brain_controller" pkg="ros_brain" type="brain_controller.py" output="screen"/>
-  
 </launch>
