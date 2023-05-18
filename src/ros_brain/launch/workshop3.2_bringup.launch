@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find turtle_ws)/turtlebot/turtlebot_bringup/launch/minimal.launch">
+  </include>
+
+  <node name="brain_controller" pkg="brain_server" type="rosservice" args="call _genome:=$(find /genome/test.mng)"/>
+  <node name="brain_controller" pkg="ros_brain" type="brain_controller.py" output="screen"/>
+  
+</launch>
