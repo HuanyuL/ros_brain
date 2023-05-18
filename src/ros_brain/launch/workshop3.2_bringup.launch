@@ -1,5 +1,5 @@
 <launch>
-  <include file="$(find turtle_ws)/turtlebot/turtlebot_bringup/launch/minimal.launch">
+  <include file="$(find turtlebot/turtlebot_bringup/launch/minimal.launch">
   </include>
 
   <node name="brain_controller" pkg="brain_server" type="rosservice" args="call _genome:=$(find /genome/test.mng)"/>
