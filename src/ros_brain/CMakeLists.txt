@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  message_generation
 )
 
 
@@ -28,13 +29,13 @@ generate_messages(
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ros_brain
-  CATKIN_DEPENDS roscpp rospy std_msgs 
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 )
 
 include_directories(${catkin_INCLUDE_DIRS})
 include_directories(${catkin_INCLUDE_DIRS} include)
 include_directories(include/MultiNEAT)
-# include_directories(/home/raimund/ros_workspace/devel/include/)
+include_directories(/home/raimund/ros_workspace/devel/include/)
 
 
 add_executable(brain src/brain.cpp)
