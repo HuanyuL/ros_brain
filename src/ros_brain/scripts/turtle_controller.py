@@ -3,14 +3,15 @@
 import rospy
 from ros_brain.srv import TriggerBrain, TriggerBrainResponse
 from geometry_msgs.msg import Twist
-from webcam.msg import View
+from std_msgs.msg import Float64MultiArray
+# from webcam.msg import View
 
 class Controller:
 
     def __init__(self):
         self.brain_srv = rospy.ServiceProxy('/trigger_brain',TriggerBrain)
         self.twist_publisher = rospy.Publisher('/cmd_vel_mux/input/teleop',Twist,queue_size=1)
-        self.view_sub = rospy.Subscriber('/view',View,self.vision_callback,queue_size=1)
+        self.view_sub = rospy.Subscriber('/view',Float64MultiArray,self.vision_callback,queue_size=1)
         self.twist= Twist()
         self.current_frame = None
 
@@ -25,10 +26,6 @@ class Controller:
         rospy.loginfo('turtle controller running')
 
         while not rospy.is_shutdown(): #and self.current_frame is not None:
-            # resp = self.brain_srv(self.current_frame)
-            # self.twist.linear.x = resp.out_vec[0]
-            # self.twist.angular.z =resp.out_vec[1]
-            # self.twist_publisher.publish(self.twist)
             rospy.spin()
 
 
