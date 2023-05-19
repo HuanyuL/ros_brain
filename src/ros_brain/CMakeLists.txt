@@ -48,7 +48,7 @@ target_link_libraries(brain_server ${catkin_LIBRARIES})
 target_link_libraries(brain ${MULTINEAT})
 target_link_libraries(brain_server ${MULTINEAT})
 
-install(PROGRAMS
+catkin_install_pyth(PROGRAMS
    scripts/turtle_controller.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
