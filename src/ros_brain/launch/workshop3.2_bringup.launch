@@ -1,5 +1,5 @@
 <launch>
-  <include file="$(find turtlebot/turtlebot_bringup/launch/minimal.launch)" />
+  <include file="$(find turtlebot)/turtlebot_bringup/launch/minimal.launch"/>
   <node name="brain_server" pkg="ros_brain" type="brain_server">
     <param name="genome" type="string" value="/home/iaac/brain_ws/genome/test.mng" />
   </node>
