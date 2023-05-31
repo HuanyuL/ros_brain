@@ -33,8 +33,10 @@ class Controller:
         #         angular_z = self.max_angular_speed
         #     else:    
         #         angular_z = resp.out_vec[1]
+
+        wz = (resp.out_vec[0] - 0.5)*2*(np.math.pi)
         self.twist.linear.x = self.max_linear_speed
-        self.twist.angular.z = resp.out_vec[0]
+        self.twist.angular.z = wz
         self.twist_publisher.publish(self.twist)
 
     def run(self):
@@ -42,7 +44,7 @@ class Controller:
         while not rospy.is_shutdown():  # and self.current_frame is not None:
             rospy.loginfo(self.twist)
             rospy.spin()
-    
+
 
 if __name__ == '__main__':
 
