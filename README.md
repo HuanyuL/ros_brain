@@ -7,7 +7,7 @@ mkdir -p brain_ws/src
 ```
 2. Clone this repository
 ```
-git clone https://github.com/HuanyuL/ros_brain
+git clone https://github.com/HuanyuL/ros_brain .
 ```
 3. Before build the workspace you need to source your ``bash`` from ``turtle_ws``
 ```

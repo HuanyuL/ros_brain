@@ -5,7 +5,6 @@ import numpy as np
 from ros_brain.srv import TriggerBrain, TriggerBrainResponse
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64MultiArray
-# from webcam.msg import View
 
 
 class Controller:
@@ -40,8 +39,8 @@ class Controller:
 
     def run(self):
         rospy.loginfo('turtle controller running')
-
         while not rospy.is_shutdown():  # and self.current_frame is not None:
+            rospy.loginfo(self.twist)
             rospy.spin()
 
 
