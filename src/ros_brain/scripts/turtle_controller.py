@@ -17,7 +17,7 @@ class Controller:
             '/view', Float64MultiArray, self.vision_callback, queue_size=1)
         self.twist = Twist()
         self.current_frame = None
-        self.max_linear_speed = 0.3
+        self.max_linear_speed = 0.08
         self.max_angular_speed = 1.0
 
     def vision_callback(self, msg):
@@ -33,10 +33,12 @@ class Controller:
         #         angular_z = self.max_angular_speed
         #     else:    
         #         angular_z = resp.out_vec[1]
-
-        wz = (resp.out_vec[0] - 0.5)*2*(np.math.pi)
+        rospy.loginfo(resp.out_vec)
+        wz = (resp.out_vec[0] - 0.5)*(np.math.pi)
         self.twist.linear.x = self.max_linear_speed
         self.twist.angular.z = wz
+        rospy.loginfo(wz)
+
         self.twist_publisher.publish(self.twist)
 
     def run(self):
